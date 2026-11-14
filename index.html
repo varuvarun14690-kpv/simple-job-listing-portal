@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Find your next opportunity with curated jobs from growing teams."
+    />
+    <title>Workly — Find your next opportunity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Workly home">
+        <span class="brand-mark" aria-hidden="true">w</span>
+        <span>workly</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#jobs">Find a job</a>
+        <a class="nav-link" href="#how-it-works">Career advice</a>
+      </nav>
+      <div class="header-actions">
+        <button class="saved-link" id="saved-toggle" type="button">
+          Saved jobs <span class="saved-count" id="saved-count">0</span>
+        </button>
+        <a class="button button-dark header-cta" href="#jobs">Get started <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> A better way to work</div>
+          <h1 id="hero-title">Find work that<br />feels like <span>you.</span></h1>
+          <p>Thoughtful opportunities from teams doing their best work. Your next chapter starts here.</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="art-sun"></div>
+          <div class="art-note">
+            <span class="note-icon">✳</span>
+            <span>Good things<br />are growing</span>
+          </div>
+          <div class="art-label">YOUR NEXT CHAPTER</div>
+          <div class="art-sparkle sparkle-one">✦</div>
+          <div class="art-sparkle sparkle-two">✳</div>
+        </div>
+        <div class="hero-bottom">
+          <div class="search-panel" role="search">
+            <label class="search-field">
+              <span class="field-icon" aria-hidden="true">⌕</span>
+              <span class="sr-only">Search jobs</span>
+              <input id="search-input" type="search" placeholder="Job title, keyword, or company" />
+            </label>
+            <span class="search-divider" aria-hidden="true"></span>
+            <label class="search-field location-field">
+              <span class="field-icon pin-icon" aria-hidden="true">⌖</span>
+              <span class="sr-only">Location</span>
+              <input id="location-input" type="search" placeholder="City or remote" />
+            </label>
+            <button class="button button-green search-button" id="search-button" type="button">
+              Search jobs <span aria-hidden="true">→</span>
+            </button>
+          </div>
+          <p class="search-hint">Try <button type="button" class="hint-link" data-query="Product Designer">“Product Designer”</button>, <button type="button" class="hint-link" data-query="Remote">“Remote”</button> or <button type="button" class="hint-link" data-query="Marketing">“Marketing”</button></p>
+        </div>
+      </section>
+
+      <section class="jobs-section" id="jobs" aria-labelledby="jobs-title">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow section-eyebrow">YOUR NEXT MOVE</div>
+            <h2 id="jobs-title">Explore open roles<span class="heading-period">.</span></h2>
+            <p class="section-description">A few good places to make a difference.</p>
+          </div>
+          <label class="sort-control">
+            <span>Sort by</span>
+            <select id="sort-select" aria-label="Sort jobs">
+              <option value="recent">Most recent</option>
+              <option value="salary">Highest salary</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="category-list" id="category-list" aria-label="Filter by category">
+          <button class="category-chip active" type="button" data-category="All roles">All roles <span>12</span></button>
+          <button class="category-chip" type="button" data-category="Design">Design</button>
+          <button class="category-chip" type="button" data-category="Engineering">Engineering</button>
+          <button class="category-chip" type="button" data-category="Marketing">Marketing</button>
+          <button class="category-chip" type="button" data-category="Product">Product</button>
+          <button class="category-chip" type="button" data-category="Operations">Operations</button>
+        </div>
+
+        <div class="results-meta">
+          <p id="results-count" aria-live="polite">Showing 12 opportunities</p>
+          <button class="clear-filters" id="clear-filters" type="button">Clear filters <span aria-hidden="true">×</span></button>
+        </div>
+        <div class="job-grid" id="job-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <div class="empty-icon" aria-hidden="true">⌕</div>
+          <h3>No roles found just yet</h3>
+          <p>Try a different title, location, or category.</p>
+          <button class="button button-dark" id="empty-reset" type="button">See all roles</button>
+        </div>
+      </section>
+
+      <section class="callout" id="how-it-works">
+        <div class="callout-mark" aria-hidden="true">✳</div>
+        <div>
+          <p class="eyebrow">A LITTLE CAREER CLARITY</p>
+          <h2>Your work should work<br />for you, too.</h2>
+        </div>
+        <p class="callout-copy">Find teams that value good work, good people, and the life you have outside the office.</p>
+        <a href="#jobs" class="callout-link">Explore your options <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true">w</span><span>workly</span></a>
+      <p>Good work, good people. © <span id="current-year"></span> Workly</p>
+      <a href="mailto:hello@workly.example">Get in touch <span aria-hidden="true">↗</span></a>
+    </footer>
+
+    <dialog class="job-dialog" id="job-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close job details">×</button>
+      <div id="dialog-content"></div>
+    </dialog>
+  </body>
+</html>
